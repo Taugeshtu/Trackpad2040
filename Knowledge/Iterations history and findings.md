@@ -1,0 +1,1 @@
+- [x] Iteration 0: principal demonstrator. Single mutual capacitance cell made out of hand-cut copper foil; response in range 0.8V-1.6V. Works! Which means that the principle is solid - if it can work with such a janky setup, it should work with nicer hardware, and project should continue
