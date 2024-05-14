@@ -36,7 +36,7 @@ int main() {
 	// uint8_t TXpins[] = { 0, 1 };
 	mt40TXresult TXsetup = mt40SetupTX( TXpins, sizeof( TXpins ) /sizeof( TXpins[0] ) );
 	
-	uint8_t MUXpins[] = { 18, 19, 20, 21 };
+	uint8_t MUXpins[] = { 21, 20, 19, 18 };
 	uint8_t RXpin = 28;	// MUST be one of the ADC pins!
 	mt40RXresult RXsetup = mt40SetupRXMUXed( MUXpins, sizeof( MUXpins ) /sizeof( MUXpins[0] ), RXpin );
 	
@@ -78,12 +78,12 @@ int main() {
 			printf( "Scan failed :/" );
 		}
 		
-		// _printRaw( TXlinesCount, RXlinesCount, result );
+		_printRaw( TXlinesCount, RXlinesCount, result );
 		
 		const float conversionFactor = 3.3f /(1 << 12);
-		_printDiff( TXlinesCount, RXlinesCount, result, initial, conversionFactor );
+		// _printDiff( TXlinesCount, RXlinesCount, result, initial, conversionFactor );
 		
-		sleep_ms( 100 );
+		sleep_ms( 1000 );
 	}
 	
 	return 0;
