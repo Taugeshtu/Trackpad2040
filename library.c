@@ -5,6 +5,7 @@
 #include "hardware/pwm.h"
 #include "hardware/adc.h"
 #include "hardware/clocks.h"
+#include "hardware/timer.h"
 
 const uint8_t _ADC_PIN_ERROR_CODE = 255;
 const uint32_t _TX_FREQ = 10 *1000000;	// in Hz
@@ -61,7 +62,7 @@ void _setupPWM( const uint8_t TXpin, const float divider, const uint8_t PWMcount
 	pwm_set_clkdiv( sliceNum, divider );
 	pwm_set_wrap( sliceNum, PWMcounts - 1 );
 	pwm_set_chan_level( sliceNum, PWM_CHAN_A, 1 );
-	pwm_set_enabled( sliceNum, false );
+	pwm_set_enabled( sliceNum, true );
 }
 
 
@@ -168,3 +169,61 @@ void _dropToGND( uint8_t pin ) {
 	gpio_put( pin, 0 );
 }
 
+void _muxSelect( mt40Pins pins, const uint8_t pinIndex ) {
+	for( uint8_t muxIndex = 0; muxIndex < pins.numPins; muxIndex++ ) {
+		uint8_t pinValue = (pinIndex >> muxIndex) & 1;
+		gpio_put( pins.pins[muxIndex], pinValue );
+	}
+}
+
+MT40_SCAN_STATUS mt40ScanMatrix( const mt40Pins TXpins, const mt40Pins RXpins, uint8_t TXcount, uint8_t RXcount, uint16_t (*result)[RXcount] ) {
+	if( TXcount > _getMaxPinsCount( TXpins ) ) return MT40_SCAN_STATUS_PIN_COUNT_ERROR;
+	if( RXcount > _getMaxPinsCount( RXpins ) ) return MT40_SCAN_STATUS_PIN_COUNT_ERROR;
+	
+	// drop TX pins to ground first:
+	if( TXpins.isMultiplexed ) {
+		_dropToGND( TXpins.activePin );
+		gpio_set_function( TXpins.activePin, GPIO_FUNC_PWM );
+	}
+	else {
+		for( uint8_t TXindex = 0; TXindex < TXpins.numPins; TXindex++ ) {
+			_dropToGND( TXpins.pins[TXindex] );
+		}
+	}
+	
+	for( uint8_t RXindex = 0; RXindex < RXcount; RXindex++ ) {
+		// activate RX:
+		if( RXpins.isMultiplexed ) {
+			_muxSelect( RXpins, RXindex );
+			adc_select_input( RXpins.activePin );
+		}
+		else {
+			adc_select_input( RXpins.pins[RXindex] );
+		}
+		
+		for( uint8_t TXindex = 0; TXindex < TXcount; TXindex++ ) {
+			// activate TX:
+			if( TXpins.isMultiplexed ) {
+				_muxSelect( TXpins, TXindex );
+			}
+			else {
+				if( TXindex > 0 ) _dropToGND( TXpins.pins[TXindex - 1] );
+				gpio_set_function( TXpins.pins[TXindex], GPIO_FUNC_PWM );
+			}
+			
+			// microsleep here - to settle all the inputs/outputs, muxes, etc; also TX line pump must settle into steady state
+			busy_wait_us_32( 2 );
+			
+			// listen back:
+			uint16_t pointResult = adc_read();
+			
+			// maybe some kind of filtering here?..
+			result[TXindex][RXindex] = pointResult;
+			
+			// final drop-down for the next cycle to start nicely, without last TX line screaming:
+			if( TXindex == (TXcount - 1) ) _dropToGND( TXpins.pins[TXcount - 1] );
+		}
+	}
+	
+	return MT40_SCAN_STATUS_OK;
+}

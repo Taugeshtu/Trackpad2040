@@ -12,7 +12,7 @@ pico_sdk_init()
 # project configuration
 add_library(library library.c)
 # target_include_directories(library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(library pico_stdlib hardware_pwm hardware_adc hardware_clocks)
+target_link_libraries(library pico_stdlib hardware_pwm hardware_adc hardware_clocks hardware_timer)
 
 add_executable(proto_mt hello_tau.c)
 
