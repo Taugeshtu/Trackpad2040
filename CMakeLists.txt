@@ -21,7 +21,7 @@ pico_enable_stdio_usb(proto_mt 1)
 pico_enable_stdio_uart(proto_mt 0)
 
 # Add pico_stdlib library which aggregates commonly used features
-target_link_libraries(proto_mt pico_stdlib hardware_pwm hardware_adc library)
+target_link_libraries(proto_mt pico_stdlib pico_multicore hardware_pwm hardware_adc library)
 
 # create map/bin/hex/uf2 file in addition to ELF.
 pico_add_extra_outputs(proto_mt)

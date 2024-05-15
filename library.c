@@ -18,7 +18,7 @@ uint8_t _toPower( const uint8_t n, const uint8_t power ) {
 	return result;
 }
 
-uint8_t _GPIO2ADCChannel( uint8_t gpio ) {
+inline uint8_t _GPIO2ADCChannel( const uint8_t gpio ) {
 	switch( gpio ) {
 		case 26: return 0;
 		case 27: return 1;
