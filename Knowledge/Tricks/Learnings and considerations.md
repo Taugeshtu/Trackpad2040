@@ -1,0 +1,4 @@
+- For Vref, resistor precision (1% vs 0.01%) doesn't matter much, it's related to absolute accuracy of Vref rather than stability in operation
+- TL431 is an absolute CHOICE chip to serve as Vref; the 0.5%/1% initial accuracy relates not to noise level, but to absolute error in internal voltage reference
+- [[Latency data]]
+- Trying to passively smooth out [[RX line]] for ADC readout is a fool's errand - every component's requirements are in contention with the other ones, see [[RX line#^conflictingRequirements]]

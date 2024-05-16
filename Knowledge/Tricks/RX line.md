@@ -10,6 +10,7 @@ The idea behind it is: ADC may be having a hard time reading off a signal that's
 	- capacitor wants to be big to store up charge, but that drives the signal voltage down, making ADC's job hard
 	- filter resistor wants to be small to allow fast capacitor charge, but big to not let it drain "backwards"
 	- drain resistor wants to be big to not create yet another voltage drop via divider, but small to discharge the buffer quickly enough
+^conflictingRequirements
 
 To solve `1.` we introduce Op-Amp buffer/voltage follower - why mess up the signal when you can not do that?
 To solve `2.` we connect the output of our ADC "front-end" to not only ADC input pin, but also to another GPIO pin, so that we can forcibly drive that pin DOWN to the ground and quickly drain the buffer when we jump between matrix cells

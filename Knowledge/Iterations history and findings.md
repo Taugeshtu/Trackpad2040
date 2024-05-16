@@ -1,1 +1,2 @@
 - [x] Iteration 0: principal demonstrator. Single mutual capacitance cell made out of hand-cut copper foil; response in range 0.8V-1.6V. Works! Which means that the principle is solid - if it can work with such a janky setup, it should work with nicer hardware, and project should continue
+- [x] Iteration 1: [[MTK_Tutorial.pdf]] recreation with Pi Pico (clone). Circuit error with 100k resistor between MUX out and ADC (shan't be there); missing drain capacitors; no dedicated VREF for ADC; signal is weak. Good things: signal is present, multiple touches are visible 
