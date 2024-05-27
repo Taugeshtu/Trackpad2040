@@ -1,0 +1,17 @@
+- [ ] Dig RP2040 schematic - what is actually happening when ADC MUX is configured?
+- [ ] Is it possible (time-wise) to quickly switch ADC pin into GPIO-OUT mode and pin it down to drain the buffer?
+- [ ] Distill the captouch sensor design guide
+- [ ] Watch the ["best captouch sensor design practices" vid](https://www.youtube.com/watch?v=g-WVW6QobwY), distill
+- [ ] Probe whether having those feedback-filtering caps on Op-Amp makes a difference
+- [ ] Probe whether gain of 3 is enough/okay/good/bad
+- [ ] Probe buffer cap, see how that behaves
+- [x] ADC Vref - remember that somewhere in datasheet there was something about specificity of ADC Vref bring-up timing? Nope: "small transient currents may flow in the ADC supply (ADC_AVDD) if it is powered up before, or powered down after, the digital core supply (DVDD). This will not damage the chip"
+- [ ] "Driving high the SMPS mode pin (GPIO23), to force the power supply into PWM mode, can greatly reduce the inherent ripple of the SMPS at light load, and therefore the ripple on the ADC supply" - try that, MEASURE
+- [ ] Try with and without external Vref, MEASURE
+- [ ] Fiddling with TX lines. Play with these, see result on the scope (whether that works for PWM or not! I suspect feeding more sinusoidal signal into TX will be highly beneficial):
+	- Output drive strength can be set to 2mA, 4mA, 8mA or 12mA
+	- Output slew rate can be set to slow or fast
+- [ ] For bulk ops, maybe using DMA makes sense?.. Will need to implement and measure:
+	- hand-crafted choice code setting control bits (maybe with asm?), re-setting all in a swing
+	- hand-crafted choice code, but now we're only swapping the ones that makes sense to swap
+	- DMA-operated code

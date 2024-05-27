@@ -2,3 +2,10 @@
 - TL431 is an absolute CHOICE chip to serve as Vref; the 0.5%/1% initial accuracy relates not to noise level, but to absolute error in internal voltage reference
 - [[Latency data]]
 - Trying to passively smooth out [[RX line]] for ADC readout is a fool's errand - every component's requirements are in contention with the other ones, see [[RX line#^conflictingRequirements]]
+- Sharing ADC pin with drop-down pin: "When using an ADC input shared with a GPIO pin, the pin’s digital functions must be disabled by setting IE low and OD high in the pin’s pad control register"
+- "No settling time is required when switching AINSEL" - that's ADC's MUX. HUH.
+- There IS a sample&hold block in front of ADC, so that's the reason why measurements without a buffer in front of the ADC are all over the place
+- "The SIO function (F5) must be selected for the processors to drive a GPIO, but the input is always connected"
+- ![[RP2040_IO_pad.png]] - this is VERY interesting... Implication is that the pad, sitting in front of GPIO MUXing, can also fuck around with ADC pins?..
+- "The input buffer can be disabled, to reduce current consumption when the pad is unused, unconnected or connected to an analogue signal." - this might be nice to do when reworking code for bulk-change
+- The idea to bulk-change the pins is probably wrong :/ Looking into datasheet, there are indeed control bytes (yes, whole 4 bytes of it!) in memory-mapped registers BUT that's a per-pad business. Problem is, these are interspersed with 32 bits of the STATUS register in IO_BANK0 :/ So as much as I would loooove to do batch-switching, doesn't seem possible...
