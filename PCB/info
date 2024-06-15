@@ -4,7 +4,7 @@
   "name": "Trackpad2040",
   "content": "",
   "created_at": "2024-05-04 09:35:45",
-  "updated_at": "2024-05-27 14:53:45",
+  "updated_at": "2024-06-13 22:46:00",
   "stick": "",
   "documents": [
     {
@@ -410,8 +410,8 @@
     {
       "uuid": "13e43879a7c735df66c474cb7e3b608e",
       "puuid": "cdc537ab715a8292e7043838bb8358f6",
-      "title": "PCB_Trackpad",
-      "filename": "PCB_Trackpad.json",
+      "title": "PCB_Trackpad2040_v2",
+      "filename": "PCB_Trackpad2040_v2.json",
       "description": "",
       "docType": "3",
       "master": "",
@@ -611,6 +611,220 @@
       "histories": [],
       "created_at": "2024-05-26 22:37:57",
       "updated_at": "2024-05-26 22:39:09"
+    },
+    {
+      "uuid": "d399ad5860032b3a1803cf6f5ef4e9c3",
+      "puuid": "cdc537ab715a8292e7043838bb8358f6",
+      "title": "PCB_Trackpad2040",
+      "filename": "PCB_Trackpad2040.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "a286f69710ac45e092efe4e82d348770": 8,
+        "f8151fdc728a41ebbc304e11d39e5437": 6,
+        "0821ed6ea50c44f4909e4be7610e4198": 1,
+        "fafd024f554e426eb74cf4a204aa88b0": 25,
+        "5285f354e5844eacbcc3760503ffbe34": 1,
+        "1683c8b979374acea7f5ebd913839542": 1,
+        "9477aedd797e438398213963990dbc70": 1,
+        "e7f085e4f71344109c090040716070ab": 1,
+        "b3b82869fa924bae820e3a6cfb44d689": 1,
+        "1889a4c45e5b4107a2a7d2f3f3ec5da7": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "10uF",
+          3,
+          "C0603",
+          "C1,C6,C7",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "SAMSUNG(三星)",
+            "Manufacturer Part": "CL10A106KP8NNNC",
+            "Supplier Part": "C19702",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "CL10A106KP8NNNC",
+            "puuid": "f8151fdc728a41ebbc304e11d39e5437",
+            "uuid": "3d033fcb6d334c25b65a754834cf5aaf"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C2",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer Part": "CL05B104KO5NNNC",
+            "Manufacturer": "SAMSUNG(三星)",
+            "Supplier Part": "C1525",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "CL05B104KO5NNNC",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "ca94110f4544769d36adda4b0515e409"
+          }
+        ],
+        [
+          "30pF",
+          2,
+          "C0603",
+          "C3,C4",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "FH(风华)",
+            "Manufacturer Part": "0603CG300J500NT",
+            "Supplier Part": "C1658",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "0603CG300J500NT",
+            "puuid": "f8151fdc728a41ebbc304e11d39e5437",
+            "uuid": "2c60b7dca91bbaf589ac29f5133c04ce"
+          }
+        ],
+        [
+          "3.3nF",
+          1,
+          "C0603",
+          "C5",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer Part": "CL10B332KB8NNNC",
+            "Manufacturer": "SAMSUNG(三星)",
+            "Supplier Part": "C1613",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "CL10B332KB8NNNC",
+            "puuid": "f8151fdc728a41ebbc304e11d39e5437",
+            "uuid": "bafbb01c9137bfb945474bf841ee2d4b"
+          }
+        ],
+        [
+          "1kΩ",
+          3,
+          "R0402",
+          "R10,R11,R12",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "UNI-ROYAL(厚声)",
+            "Manufacturer Part": "0402WGF1001TCE",
+            "Supplier Part": "C11702",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "0402WGF1001TCE",
+            "puuid": "fafd024f554e426eb74cf4a204aa88b0",
+            "uuid": "0162c93b05c079a4f063ffb73f50c063"
+          }
+        ],
+        [
+          "100Ω",
+          2,
+          "R0402",
+          "R13,R14",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "UNI-ROYAL(厚声)",
+            "Manufacturer Part": "0402WGF1000TCE",
+            "Supplier Part": "C25076",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "0402WGF1000TCE",
+            "puuid": "fafd024f554e426eb74cf4a204aa88b0",
+            "uuid": "eed73d96f2a999d115ebc694d6de6b8b"
+          }
+        ],
+        [
+          "20kΩ",
+          20,
+          "R0402",
+          "R15,R16,R17,R18,R19,R20,R21,R22,R23,R24,R25,R26,R27,R28,R29,R30,R31,R32,R33,R34",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "UNI-ROYAL(厚声)",
+            "Manufacturer Part": "0402WGF2002TCE",
+            "Supplier Part": "C25765",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "0402WGF2002TCE",
+            "puuid": "fafd024f554e426eb74cf4a204aa88b0",
+            "uuid": "f9320447cefe8840d4d854b157da9204"
+          }
+        ],
+        [
+          "KF1027B-08P-L00-DFT-01B",
+          1,
+          "SW-SMD_16P-L21.3-W6.2-P1.27-LS9.9-BL",
+          "SW1",
+          {
+            "Contributor": "lcsc",
+            "Supplier": "LCSC",
+            "Supplier Part": "C976359",
+            "Manufacturer": "凯峰",
+            "Manufacturer Part": "KF1027B-08P-L00-DFT-01B",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "KF1027B-08P-L00-DFT-01B",
+            "puuid": "5285f354e5844eacbcc3760503ffbe34",
+            "uuid": "96131a34df364aabbe749d57c41f9dbf"
+          }
+        ],
+        [
+          "ADA4891-1",
+          1,
+          "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+          "U3",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Manufacturer": "ADI(亚德诺)",
+            "Manufacturer Part": "ADA4891-1ARJZ-R7",
+            "Supplier Part": "C141926",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "ADA4891-1ARJZ-R7",
+            "puuid": "e7f085e4f71344109c090040716070ab",
+            "uuid": "d6e5ec02dc0d471fab553e94a71f6f29"
+          }
+        ],
+        [
+          "TL431",
+          1,
+          "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+          "U4",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "CJ(江苏长电/长晶)",
+            "Manufacturer Part": "CJ431",
+            "Supplier Part": "C3113",
+            "JLCPCB Part Class": "Basic Part",
+            "spiceSymbolName": "CJ431_C3113",
+            "puuid": "b3b82869fa924bae820e3a6cfb44d689",
+            "uuid": "c0c5e865474f40d1afa5f33d26a619b2"
+          }
+        ],
+        [
+          "CD74HC4067SM96",
+          1,
+          "SSOP-24_L8.1-W5.3-P0.65-LS7.8-BL",
+          "U5",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "TI(德州仪器)",
+            "Manufacturer Part": "CD74HC4067SM96",
+            "Supplier Part": "C98457",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "CD74HC4067SM96",
+            "puuid": "1889a4c45e5b4107a2a7d2f3f3ec5da7",
+            "uuid": "daeee8f081904ed6be17e88b0f3458fd"
+          }
+        ]
+      ],
+      "updateTime": 1718315160,
+      "createTime": 1718315131,
+      "histories": [],
+      "created_at": "2024-06-13 22:45:31",
+      "updated_at": "2024-06-13 22:46:00"
     }
   ],
   "sort": [
