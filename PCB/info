@@ -4,7 +4,7 @@
   "name": "Trackpad2040",
   "content": "",
   "created_at": "2024-05-04 09:35:45",
-  "updated_at": "2024-06-18 22:18:18",
+  "updated_at": "2024-06-18 23:06:33",
   "stick": "",
   "documents": [
     {
@@ -14,11 +14,11 @@
       "docType": "1",
       "master": "",
       "thumb": "/images/thumb-default.png",
-      "updateTime": 1718736453,
+      "updateTime": 1718747287,
       "createTime": 1715141098,
       "histories": [],
       "created_at": "2024-05-08 05:04:58",
-      "updated_at": "2024-06-18 19:47:33",
+      "updated_at": "2024-06-18 22:48:07",
       "BOM": [
         [
           "Value",
@@ -252,12 +252,12 @@
       "master": "",
       "thumb": "/images/thumb-default.png",
       "components": {
-        "431444b821134e85b1814a8164564954": 2,
+        "a286f69710ac45e092efe4e82d348770": 8,
         "fafd024f554e426eb74cf4a204aa88b0": 33,
         "0821ed6ea50c44f4909e4be7610e4198": 4,
         "494c8549a9c94dcaa72c87bc838b733c": 3,
-        "a286f69710ac45e092efe4e82d348770": 8,
         "f8151fdc728a41ebbc304e11d39e5437": 7,
+        "431444b821134e85b1814a8164564954": 2,
         "377f16ce7fef4f3c874c510d6b3b68e1": 4,
         "1889a4c45e5b4107a2a7d2f3f3ec5da7": 2,
         "e7f085e4f71344109c090040716070ab": 1,
@@ -420,11 +420,11 @@
           }
         ]
       ],
-      "updateTime": 1718745498,
+      "updateTime": 1718748393,
       "createTime": 1715828253,
       "histories": [],
       "created_at": "2024-05-16 03:57:33",
-      "updated_at": "2024-06-18 22:18:18"
+      "updated_at": "2024-06-18 23:06:33"
     }
   ],
   "sort": [
@@ -434,5 +434,5 @@
   "title": "Trackpad2040",
   "foldername": "Trackpad2040",
   "schfilename": "Multitouch_alaMTK.json",
-  "schfilemtime": 1718736453369
+  "schfilemtime": 1718747287531
 }
